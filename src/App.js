@@ -1,24 +1,27 @@
 import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from './components/Navbar/Navbar';
+import Destinations from './components/Destinations/Destinations';
+import Hotels from './components/Hotels/Hotels';
+import Flights from './components/Flights/Flights';
+import Bookings from './components/Bookings/Bookings';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+import Language from './components/Language/Language';
+import './components/Hero/Hero';
+import Hero from './components/Hero/Hero';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Navbar />
+    <Hero/>
+    <Routes>
+      <Route exact path="/destinations" component={Destinations} />
+      <Route path="/hotels" component={Hotels} />
+      <Route path="/flights" component={Flights} />
+      <Route path="/bookings" component={Bookings} />
+    </Routes>
+  </Router>
   );
 }
 
